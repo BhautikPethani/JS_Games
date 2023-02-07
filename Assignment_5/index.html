@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    .sortedDataTable table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 60%;
+    }
+  
+    .sortedDataTable td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+  
+    .sortedDataTable tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <body>
+    <center>
+      <div id="container">
+        <h1>Student Information</h1>
+        <table>
+          <tr>
+            <td><b>First Name: </b></td>
+            <td><input type="text" id="fName"></td>
+          </tr>
+          <tr>
+            <td><b>Last Name: </b></td>
+            <td><input type="text" id="lName"></td>
+          </tr>
+          <tr>
+            <td><b>Major: </b></td>
+            <td><input type="text" id="major"></td>
+          </tr>
+          <tr>
+            <td><b>GPA: </b></td>
+            <td><input type="text" id="gpa"></td>
+          </tr>
+        </table>
+        <button id="update" onclick="update()">Update</button>
+      </div>
+      <br/>
+      <table>
+        <tr>
+          <td>
+            <button id="first" onclick="pagination('first')">First</button>
+          </td>
+          <td>
+            <button id="previous" onclick="pagination('previous')">Previous</button>
+          </td>
+          <td>
+            <button id="next" onclick="pagination('next')">Next</button>
+          </td>
+          <td>
+            <button id="last" onclick="pagination('last')">Last</button>
+          </td>
+        </tr>
+      </table>
+      <br/>
+      <table>
+        <tr>
+          <td>
+            <button id="sort" onclick="sortUp()">SORT</button>
+          </td>
+          <td>
+            <button id="reverseSort" onclick="sortDown()">REVERSE SORT</button>
+          </td>
+        </tr>
+      </table>
+      <br/>
+      <h1>Sorted Data</h1>
+      <br />
+      <div class="sortedDataTable">
+        <table>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Major</th>
+            <th>GPA</th>
+          </tr>
+            <tbody id="sortedData">
+            </tbody>
+        </table>
+      </div>
+
+    </center>
+    <script src="main.js"></script>
+  </body>
+  
+</html>
