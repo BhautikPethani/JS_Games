@@ -2,7 +2,7 @@ export function alertBox(type, msg){
     var alertBox = "";
 
     if(type=="warning"){
-        return '<div class="alert alert-warning alert-dismissible fade show" role="alert">' + 
+        return '<div class="alert alert-warning" role="alert">' + 
         msg +
         '</div>';
     }else if(type=="success"){

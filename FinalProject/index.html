@@ -12,30 +12,30 @@
     <body class="bg-dark center-aligned">
         <div class="card p-4 shadow-lg border-0 rounded-4" style="width: 25rem;">
             <div class="card-body">
-                <form action="AdminPanel/adminDashboard.html">
-                    <center><h3>SIGN IN</h3></center><br/>
-                    <div class="form-group">
-                        <label for="txtEmail" class="sm-font">Email address</label>
-                        <input type="email" class="form-control" id="txtEmail" placeholder="Enter email">
-                    </div><br />
-                    <div class="form-group">
-                        <label for="txtPassword" class="sm-font">Password</label>
-                        <input type="password" class="form-control" id="txtPassword" placeholder="Password">
-                    </div><br />
-                    <div class="row">
-                        <div class="col-8">
-                            <p class="m-1 sm-font">Not registered?  <a href="signup.html" class="text-body"><b>SIGN UP</b></a></p>
-                        </div>
-                        <div class="col-4 right-aligned">
-                            <button type="submit" class="btn btn-dark button-font">SIGN IN</button>
-                        </div>
+                <center><h3>SIGN IN</h3></center><br/>
+                <div id="alertPlaceHolder"></div>
+                <div class="form-group">
+                    <label for="txtEmail" class="sm-font">Email address</label>
+                    <input type="email" class="form-control" id="txtEmail" placeholder="Enter email">
+                </div><br />
+                <div class="form-group">
+                    <label for="txtPassword" class="sm-font">Password</label>
+                    <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+                </div><br />
+                <div class="row">
+                    <div class="col-7">
+                        <p class="m-1 sm-font">Not registered?  <a href="signup.html" class="text-body"><b>SIGN UP</b></a></p>
                     </div>
-                </form>
+                    <div class="col-5 right-aligned">
+                        <button type="submit" id="btnSignin" class="btn btn-dark button-font">SIGN IN</button>
+                    </div>
+                </div>
             </div>
             <img src="images/1.jpeg" class="card-img-bottom" alt="Task Management System">
             <div class="center-aligned">
                 <p class="m-1 sm-font">Developed by <b>@TechArmie</b></p>
             </div>
         </div>
+        <script type="module" src="/network-services/login.js"></script>
     </body>
 </html>

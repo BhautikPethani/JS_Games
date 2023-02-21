@@ -1,4 +1,4 @@
-import {registerNewUser} from "/firebase-auth/firebase-auth.js";
+import {registerNewUser} from "/network-services/firebase-auth.js";
 import {alertBox} from "/components/components.js";
 
 function validateEmail(email){

@@ -1,8 +1,9 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-  import { getDatabase,set,ref } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+  import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
   import {alertBox} from "/components/components.js";
+  import {setCookie} from "/network-services/cookies.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,7 +25,8 @@
 
   // Initialize variables
   const auth = getAuth(app)
-  const database = getDatabase(app)
+  export const database = getDatabase(app)
+  export var currentUser = "";
 
   export async function registerNewUser(email, password, userName, firstName, lastName){
     await createUserWithEmailAndPassword(auth, email, password)
@@ -46,4 +48,42 @@
       console.log(error.code);
       alertPlaceHolder.innerHTML = alertBox("danger", "Email is already registered !!");
     });
-  }
+}
+
+export function login(email, password){
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        var user = userCredential.user;
+        currentUser = user;
+        setCookie("user", user, 6);
+        window.location.replace("/AdminPanel/adminDashboard.html");
+    }).catch((error) => {
+      console.log(error);
+      alertPlaceHolder.innerHTML = alertBox("danger", "Invalid Credentials !!");
+    });
+}
+
+export async function checkUserIsSignedInOrNot(){
+   onAuthStateChanged(auth, (user) => {
+    if (user) {
+      currentUser = user;
+      // console.log(currentUser);
+      // console.log("User signed in");
+      // console.log(user);
+      // ...
+    } else {
+      setCookie("user", "", -1);
+      window.location.replace("/index.html");
+    }
+  });
+}
+
+export function signOutCurrentUser(){
+  signOut(auth).then(()=>{
+    setCookie("user", "", -1);
+    window.location.replace("/index.html");
+  }).catch((error)=>{
+    setCookie("user", "", -1);
+    window.location.replace("/index.html");
+  });
+}
