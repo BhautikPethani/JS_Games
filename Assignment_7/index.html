@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    img{
+      height: 140px;
+      width: 140px;
+      object-fit: cover;
+      margin: 3px 3px 0px 3px;
+    }
+
+    .flipBoard table, th, td {
+      border: 5px solid black;
+      border-collapse: collapse;
+    }
+
+    .sortedDataTable{
+      position: relative;
+      float: left;
+    }
+
+    .sortedDataTable table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+  
+    .sortedDataTable td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+  
+    .sortedDataTable tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+  <body style="background-color: aliceblue;">
+    <div class="sortedDataTable">
+      <table>
+        <tr>
+          <th>Top 5 Score (in Seconds)</th>
+        </tr>
+        <tbody id="sortedData">
+        </tbody>
+      </table>
+    </div>
+    <center class="flipBoard">
+      <table>
+        <tr>
+          <td><img alt="0" id="0" onclick="imgFlip(0)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="1" id="1" onclick="imgFlip(1)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="2" id="2" onclick="imgFlip(2)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="3" id="3" onclick="imgFlip(3)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+        </tr>
+        <tr>
+          <td><img alt="4" id="4" onclick="imgFlip(4)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="5" id="5" onclick="imgFlip(5)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="6" id="6" onclick="imgFlip(6)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="7" id="7" onclick="imgFlip(7)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+        </tr>
+        <tr>
+          <td><img alt="8" id="8" onclick="imgFlip(8)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="9" id="9" onclick="imgFlip(9)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="10" id="10" onclick="imgFlip(10)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="11" id="11" onclick="imgFlip(11)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+        </tr>
+        <tr>
+          <td><img alt="12" id="12" onclick="imgFlip(12)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="13" id="13" onclick="imgFlip(13)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="14" id="14" onclick="imgFlip(14)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+          <td><img alt="15" id="15" onclick="imgFlip(15)" src="https://www.number13.de/content/images/2019/03/League-of-Legends.jpg"></td>
+        </tr>
+      </table>
+      
+      <h4><span style="font-size: 30px;" id="seconds">0</span><br/>Time (in seconds)</h4>
+    </center>
+    <script src="main.js"></script>
+  </body>
+  
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    button{
+      height: 120px;
+      width: 120px;
+      font-size: 50px;
+      background-color: rgb(7, 7, 7);
+      color: #dddddd;
+    }
+
+    .normalButton{
+      height: 50px;
+      width: 120px;
+      font-size: 25px;
+      font-weight: 700;
+      margin: 20px;
+      background-color: rgb(255, 255, 255);
+      color: #010101;
+    }
+
+    .flipBoard table, th, td {
+      border: 5px solid black;
+      border-collapse: collapse;
+    }
+
+
+    .sortedDataTable{
+      position: relative;
+      float: left;
+    }
+
+    .sortedDataTable table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+  
+    .sortedDataTable td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+  
+    .sortedDataTable tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+
+  <body style="background-color: aliceblue;">
+    <div class="sortedDataTable">
+      <table>
+        <tr>
+          <th>Top 5 Score (in Seconds)</th>
+        </tr>
+        <tbody id="sortedData">
+        </tbody>
+      </table>
+    </div>
+    <center class="flipBoard">
+      <table>
+        <tr>
+          <td><button id="1" value="11" onclick="move(1)">1</button></td>
+          <td><button id="2" value="12" onclick="move(2)">2</button></td>
+          <td><button id="3" value="13" onclick="move(3)">3</button></td>
+          <td><button id="4" value="14" onclick="move(4)">4</button></td>
+        </tr>
+        <tr>
+          <td><button id="5" value="21" onclick="move(5)">5</button></td>
+          <td><button id="6" value="22" onclick="move(6)">6</button></td>
+          <td><button id="7" value="23" onclick="move(7)">7</button></td>
+          <td><button id="8" value="24" onclick="move(8)">8</button></td>
+        </tr>
+        <tr>
+          <td><button id="9" value="31" onclick="move(9)">9</button></td>
+          <td><button id="10" value="32" onclick="move(10)">10</button></td>
+          <td><button id="11" value="33" onclick="move(11)">11</button></td>
+          <td><button id="12" value="34" onclick="move(12)">12</button></td>
+        </tr>
+        <tr>
+          <td><button id="13" value="41" onclick="move(13)">13</button></td>
+          <td><button id="14" value="42" onclick="move(14)">14</button></td>
+          <td><button id="15" value="43" onclick="move(15)">15</button></td>
+          <td><button id="16" value="44" onclick="move(16)"></button></td>
+        </tr>
+      </table>
+      
+      <button class="normalButton" onclick="resetGame()">Reset</button>
+
+      <h4><span style="font-size: 30px;" id="seconds">0</span><br/>Time (in seconds)</h4>
+    </center>
+    <script src="main.js"></script>
+  </body>
+  
+</html>

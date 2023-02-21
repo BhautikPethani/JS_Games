@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<style>
+    #mainCanvas {
+        width: 1000px;
+        height: 600px;
+        background-color: black;
+        opacity: 0.8;
+        border-color: aqua;
+    }
+
+    #ball {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        margin-top: 280px;
+        margin-left: 480px;
+        background-color: rgb(217, 253, 8);
+        border-radius: 15px;
+    }
+
+    #leftWall{
+        position: absolute;
+        width: 10px;
+        height: 200px;
+        margin-top: 200px;
+        margin-left: 0px;
+        background-color: rgb(5, 1, 253);
+        border-radius: 15px;
+    }
+
+    #redGoalScore{
+        position: absolute;
+        margin-top: 250px;
+        margin-left: 1300px;
+        color: rgb(253, 1, 1);
+        font-size: 60px;
+    }
+
+    #blueGoalScore{
+        position: absolute;
+        margin-top: 250px;
+        margin-left: 140px;
+        color: rgb(5, 1, 253);
+        font-size: 60px;
+    }
+
+    #redScore{
+        color: rgb(253, 1, 1);
+    }
+
+    #blueScore{
+        color: rgb(5, 1, 253);
+    }
+
+    #blueDefender{
+        position: absolute;
+        width: 10px;
+        height: 60px;
+        margin-top: 230px;
+        margin-left: 950px;
+        background-color: rgb(5, 1, 253);
+        border-radius: 15px;
+    }
+
+    #redDefender{
+        position: absolute;
+        width: 10px;
+        height: 60px;
+        margin-top: 230px;
+        margin-left: 50px;
+        background-color: rgb(253, 1, 1);
+        border-radius: 15px;
+    }
+
+    #rightWall{
+        position: absolute;
+        width: 10px;
+        height: 200px;
+        margin-top: 200px;
+        margin-left: 990px;
+        background-color: rgb(253, 1, 1);
+        border-radius: 15px;
+    }
+
+    button{
+        padding: 5px;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <h1 id="redGoalScore">0</h1>
+    <h1 id="blueGoalScore">0</h1>
+    <center>
+        <div id="mainCanvas">
+            <div id="ball"></div>
+            <div id="leftWall"></div>
+            <div id="redDefender"></div>
+            <div id="blueDefender"></div>
+            <div id="rightWall"></div>
+        </div>
+        <br/>
+        <button onclick="initState()">Start</button>
+        <h1 style="font-size: 50px;"><span id="blueScore">0</span> : <span id="redScore">0</span></h1>
+    </center>
+    <script src="main.js"></script>
+</body>
+
+</html>

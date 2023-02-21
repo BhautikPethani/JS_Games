@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    .sortedDataTable table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 60%;
+    }
+  
+    .sortedDataTable td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+  
+    .sortedDataTable tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    #mainCanvas {
+        width: 1000px;
+        height: 550px;
+        background-color: black;
+        opacity: 0.8;
+    }
+    #movableDiv {
+      position: absolute;
+        color: white;
+        margin-left: 450px;
+        font-size: 25px;
+    }
+
+    input{
+      font-size: 22px;
+      text-align: center;
+    }
+
+    #score{
+      color: black;
+      font-size: 40px;
+      margin-top: 20px;
+      margin-left: 100px;
+      float: left;
+      font-weight: 900;
+    }
+
+    #score strong{
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    #life{
+      color: black;
+      font-size: 40px;
+      margin-top: 20px;
+      margin-right: 100px;
+      float: right;
+      font-weight: 900;
+    }
+
+    #life strong{
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+  <body style="background-color: aliceblue;">
+    <div id="score"><strong>Score</strong> <br/> <center id="scoreBoard">00</center></div>
+    <div id="life"><strong>Life</strong> <br />
+      <center id="lifeBoard">3</center>
+    </div>
+
+    <div id="gameOverModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Game Over !!!</p>
+      </div>
+    </div>
+
+    <center>
+      <div id="mainCanvas">
+        <p id="movableDiv">dam</p>
+      </div>
+      <br/>
+      <br />
+      <input type="text" id="textEnter" onkeydown="onChangeListener()" autofocus>
+      <br />
+    </center>
+    <script src="main.js"></script>
+  </body>
+  
+</html>
