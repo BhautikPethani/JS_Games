@@ -3,7 +3,7 @@
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
   import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
   import {alertBox} from "/components/components.js";
-  import {setCookie} from "/network-services/cookies.js";
+  import {createToLocal, deleteFromLocal} from "/network-services/cookies.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -55,7 +55,7 @@ export function login(email, password){
     .then((userCredential) => {
         var user = userCredential.user;
         currentUser = user;
-        setCookie("user", user, 6);
+        createToLocal("user", user);
         window.location.replace("/AdminPanel/adminDashboard.html");
     }).catch((error) => {
       console.log(error);
@@ -67,12 +67,13 @@ export async function checkUserIsSignedInOrNot(){
    onAuthStateChanged(auth, (user) => {
     if (user) {
       currentUser = user;
+      createToLocal("user", user);
       // console.log(currentUser);
       // console.log("User signed in");
       // console.log(user);
       // ...
     } else {
-      setCookie("user", "", -1);
+      deleteFromLocal("user");
       window.location.replace("/index.html");
     }
   });
@@ -80,10 +81,10 @@ export async function checkUserIsSignedInOrNot(){
 
 export function signOutCurrentUser(){
   signOut(auth).then(()=>{
-    setCookie("user", "", -1);
+    deleteFromLocal("user");
     window.location.replace("/index.html");
   }).catch((error)=>{
-    setCookie("user", "", -1);
+    deleteFromLocal("user");
     window.location.replace("/index.html");
   });
 }

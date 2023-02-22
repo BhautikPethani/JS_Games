@@ -1,11 +1,11 @@
 import {checkUserIsSignedInOrNot, signOutCurrentUser, database, currentUser} from "/network-services/firebase-auth.js";
 import {alertBox} from "/components/components.js";
-import {getCookie} from "/network-services/cookies.js";
+import {createToLocal, readFromLocal} from "/network-services/cookies.js";
 import { set, ref, child, get } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
-var user = getCookie("user");
+var user = readFromLocal("user");
 var selectedUsers = [];
-if(user != ""){
+if(user != null){
     checkUserIsSignedInOrNot();
 }else{
     window.location.replace("/index.html");
@@ -130,7 +130,7 @@ function displayAllWorkspacesToTable(allWorkspaces){
                     + "<td>"+workspace.val().workspaceName+"</td>"
                     + "<td><b>@"+getAdminFromWorkspaceName(workspace.key)+"</b></td>"
                     + "<td>"+getParticipantsListInText(workspace.val().participants)+"</td>";
-                html+=(getAdminFromWorkspaceName(workspace.key) == generateUsername(currentUser.email)) ? '<td><button class="btn btn-danger" id="'+workspace.key+'">DELETE</button></td>' : '<td></td>';
+                html+=(getAdminFromWorkspaceName(workspace.key) == generateUsername(currentUser.email)) ? '<td><button class="btn btn-danger" id="'+workspace.key+'"><i class="bx bx-trash"></i> Delete</button></td>' : '<td></td>';
                 html+= "</tr>";
     });
     tblWorkspaces.innerHTML = html;

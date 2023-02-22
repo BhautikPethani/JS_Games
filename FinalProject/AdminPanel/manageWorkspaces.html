@@ -17,14 +17,16 @@
     <header class="header bg-white" id="header">
         <div class="header_toggle text-dark"> <i class='bx bx-menu' id="header-toggle"></i> </div>
         <a class="text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="fs-6"><span class="d-none d-sm-inline"> <b>@TechArmie</b></span></span>
+            <span class="fs-6"><span class="d-none d-sm-inline"> <b id="openedWorkspace">@TechArmie</b></span></span>
         </a>
         <div class="dropdown-menu mt-2">
             <h6 class="dropdown-header mb-2 center-aligned">Your Workspaces</h6>
-            <a class="dropdown-item" href="#"><span class="fs-6"><span class="d-none d-sm-inline">
-                        <b>@TechArmie</b></span></span></a>
-            <a class="dropdown-item" href="#"><span class="fs-6"><span class="d-none d-sm-inline">
-                        <b>@TechArmie</b></span></span></a>
+            <div id="listWorkspaces">
+                <a class="dropdown-item" href="#"><span class="fs-6"><span class="d-none d-sm-inline">
+                            <b>@TechArmie</b></span></span></a>
+                <a class="dropdown-item" href="#"><span class="fs-6"><span class="d-none d-sm-inline">
+                            <b>@TechArmie</b></span></span></a>
+            </div>
             <hr class="my-2">
             <a class="dropdown-header center-aligned" href="#"><span class="text-primary"> <b>Manage
                         Workspaces</b></span></a>
@@ -48,19 +50,26 @@
     </div>
     <!--Container Main start-->
     <div class="row sideMargin">
-        <div class="right-aligned">
-            <a onclick="showAddTaskModal()" class="btn btn-outline-dark mb-2"> <i class='bx bx-plus-circle'
-                    id="header-toggle"></i> Create New Workspace</a>
+        <div class="row mb-5">
+            <div class="col-7">
+                <h3 class="text-secondary">Manage Workspaces</h3>
+            </div>
+            <div class="col-5">
+                <div class="right-aligned">
+                    <a onclick="showAddTaskModal()" class="btn btn-outline-dark mb-2"> <i class='bx bx-plus-circle'
+                            id="header-toggle"></i> Create New Workspace</a>
+                </div>
+            </div>
         </div>
         <div id="workspaceAlertPlaceHolder"></div>
         <table class="table">
-            <caption>List of users</caption>
+            <caption>List of workspaces</caption>
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Workspace</th>
                     <th scope="col">Admin</th>
-                    <th scope="col">Participants</th>
+                    <th scope="col">Members</th>
                     <th scope="col"></th>
                 </tr>
             </thead>

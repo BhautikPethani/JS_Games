@@ -1,22 +1,14 @@
-export function setCookie(cookieName, cookieValue, expireInDays) {
-  const expiryDate = new Date();
-  expiryDate.setTime(expiryDate.getTime() + (expireInDays*24*60*60*1000));
-  let expires = "expires="+ expiryDate.toUTCString();
-  document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+export function createToLocal(key, value) {
+  const toJson = JSON.stringify(value);
+  localStorage.setItem(key, toJson);
 }
 
-export function getCookie(cookieName) {
-  let name = cookieName + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
+export function readFromLocal(key) {
+  const getJson = localStorage.getItem(key);
+  const fromJson = JSON.parse(getJson);
+  return fromJson;
+}
+
+export function deleteFromLocal(key) {
+  localStorage.removeItem(key);
 }
