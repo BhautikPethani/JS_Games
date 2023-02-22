@@ -38,19 +38,37 @@ function displayWorkspaceToList(workspaces){
     if(workspaces.length > 0){
         // currentWorkspaceKey && currentWorkspaceVal
         var html = '';
-        if(readFromLocal("currentWorkspace") == null){
+        var btnWorkspaceList = [];
+        if(readFromLocal("currentWorkspaceKey") == null || readFromLocal("currentWorkspaceVal") == null){
             workspaces.forEach(workspace => {
+                btnWorkspaceList.push(workspace);
                 createToLocal("currentWorkspaceKey", workspace.key);
                 createToLocal("currentWorkspaceVal", workspace.val());
 
-                html+='<a class="dropdown-item" href="#"><span class="fs-6"><span class="d-none d-sm-inline"><b>@'+workspace.val().workspaceName+'</b></span></span></a>';
+                html+='<a class="dropdown-item" id="href'+workspace.key+'"><span class="fs-6"><span class="d-none d-sm-inline"><b>@'+workspace.val().workspaceName+'</b></span></span></a>';
+            });
+            updateCurrentWorkspaceName("@"+readFromLocal("currentWorkspaceVal").workspaceName);
+            listWorkspaces.innerHTML = html;
+        }else{
+            updateCurrentWorkspaceName("@"+readFromLocal("currentWorkspaceVal").workspaceName);
+            workspaces.forEach(workspace => {
+                btnWorkspaceList.push(workspace);
+                html+='<a class="dropdown-item" id="href'+workspace.key+'"><span class="fs-6"><span class="d-none d-sm-inline"><b>@'+workspace.val().workspaceName+'</b></span></span></a>';
             });
             updateCurrentWorkspaceName("@"+readFromLocal("currentWorkspaceVal").workspaceName);
             listWorkspaces.innerHTML = html;
         }
+        btnWorkspaceList.forEach(btnId=>{
+            document.getElementById("href"+btnId.key).addEventListener('click', async (e)=>{
+                createToLocal("currentWorkspaceKey", btnId.key);
+                createToLocal("currentWorkspaceVal", btnId.val());
+                window.location.replace("/AdminPanel/adminDashboard.html");
+            });
+        });
     }else{
         openedWorkspace.innerHTML = "no workspace";
         listWorkspaces.innerHTML = "";
+        window.location.replace("/AdminPanel/manageWorkspaces.html");
     }
 }
 

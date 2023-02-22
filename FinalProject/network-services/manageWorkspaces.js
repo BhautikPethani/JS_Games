@@ -97,6 +97,7 @@ function getWorkspaces(){
         });
         // console.log(allWorkspaces);
         displayAllWorkspacesToTable(allWorkspaces);
+        displayWorkspaceToList(allWorkspaces);
     }).catch((error) => {
         console.error(error);
     });
@@ -144,6 +145,43 @@ function displayAllWorkspacesToTable(allWorkspaces){
     });
 }
 
+function displayWorkspaceToList(workspaces){
+    if(workspaces.length > 0){
+        // currentWorkspaceKey && currentWorkspaceVal
+        var html = '';
+        var btnWorkspaceList = [];
+        if(readFromLocal("currentWorkspaceKey") == null || readFromLocal("currentWorkspaceVal") == null){
+            workspaces.forEach(workspace => {
+                btnWorkspaceList.push(workspace);
+                createToLocal("currentWorkspaceKey", workspace.key);
+                createToLocal("currentWorkspaceVal", workspace.val());
+
+                html+='<a class="dropdown-item" id="href'+workspace.key+'"><span class="fs-6"><span class="d-none d-sm-inline"><b>@'+workspace.val().workspaceName+'</b></span></span></a>';
+            });
+            updateCurrentWorkspaceName("@"+readFromLocal("currentWorkspaceVal").workspaceName);
+            listWorkspaces.innerHTML = html;
+        }else{
+            updateCurrentWorkspaceName("@"+readFromLocal("currentWorkspaceVal").workspaceName);
+            workspaces.forEach(workspace => {
+                btnWorkspaceList.push(workspace);
+                html+='<a class="dropdown-item" id="href'+workspace.key+'"><span class="fs-6"><span class="d-none d-sm-inline"><b>@'+workspace.val().workspaceName+'</b></span></span></a>';
+            });
+            updateCurrentWorkspaceName("@"+readFromLocal("currentWorkspaceVal").workspaceName);
+            listWorkspaces.innerHTML = html;
+        }
+        btnWorkspaceList.forEach(btnId=>{
+            document.getElementById("href"+btnId.key).addEventListener('click', async (e)=>{
+                createToLocal("currentWorkspaceKey", btnId.key);
+                createToLocal("currentWorkspaceVal", btnId.val());
+                window.location.replace("/AdminPanel/manageWorkspaces.html");
+            });
+        });
+    }else{
+        openedWorkspace.innerHTML = "no workspace";
+        listWorkspaces.innerHTML = "";
+    }
+}
+
 function getParticipantsListInText(list){
     var temp = "";
     list.forEach(x=>{
@@ -155,4 +193,8 @@ function getParticipantsListInText(list){
 function getAdminFromWorkspaceName(workspaceName){
     var splitWorkspaceName = workspaceName.split("-+=");
     return splitWorkspaceName[1];
+}
+
+function updateCurrentWorkspaceName(workspaceName){
+    openedWorkspace.innerHTML = workspaceName;
 }
