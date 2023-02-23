@@ -49,70 +49,24 @@
                 </div>
                 <div class="col-5">
                     <div class="right-aligned">
-                        <a onclick="showAddTaskModal()" class="btn btn-outline-dark mb-2"> <i class='bx bx-plus-circle'
-                                id="header-toggle"></i> Add
-                            New Task</a>
+                        <a id="btnAddNewTask" onclick="showAddTaskModal()" class="btn btn-outline-dark mb-2"> <i class='bx bx-plus-circle'
+                                id="header-toggle"></i> Add New Task</a>
                     </div>
                 </div>
             </div>
             
+            <div id="taskAlertPlaceHolder"></div>
             <div class="col-4 mb-5">
                 <div class="row d-flex h-100">
                     <div class="col">
                         <div class="card" id="list1" style="border-radius: .75rem; background-color: #ffffff;">
                             <div class="card-body p-4">
-                                <div class="row">
-                                    <div class="col-10">
-                                        <p class="h6  m-1 text-dark">
-                                            <i class="bx bx-notepad me-2"></i>
-                                            <b>Pending Tasks</b>
-                                        </p>
-                                    </div>
-                                     <div class="col-2">
-                                        <a class="text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-filter"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <h6 class="dropdown-header center-aligned"><b>Filter by</b></h6>
-                                            <hr class="my-1">
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Date Added</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Start Date</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Completed Date</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Due Date</span></a>
-                                        </div>
-                                    </div>   
-                                </div>
+                                <p class="h6  m-1 text-dark">
+                                    <i class="bx bx-notepad me-2"></i>
+                                    <b>Pending Tasks</b>
+                                </p>
                                 <hr class="my-4">
-                                
-                                <div class="row">
-                                    <div class="col-1">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="fs-6">Requirement Gathering Requirement GatheringRequirement Gathering <span class="badge bg-danger" data-mdb-toggle="tooltip" title="Due date"><i class="fas fa-info-circle me-2"></i>28th Jun
-                                            2020</span></p>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#" class="text-info"><i class="fas fa-pencil-alt me-2"></i></a>
-                                        <a href="#" class="text-danger"><i class="fas fa-trash-alt me-2"></i></a>
-                                        <a href="#" class="text-primary" onclick="showModal()"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="fs-6">Requirement Gathering Requirement GatheringRequirement Gathering <span class="badge bg-danger"
-                                                data-mdb-toggle="tooltip" title="Due date"><i class="fas fa-info-circle me-2"></i>28th Jun
-                                                2021</span></p>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#" class="text-info"><i class="fas fa-pencil-alt me-2"></i></a>
-                                        <a href="#" class="text-danger"><i class="fas fa-trash-alt me-2"></i></a>
-                                        <a href="#" class="text-primary" onclick="showModal()"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
+                                <div id="pendingTasksBoard"></div>
                             </div>
                         </div>
                     </div>
@@ -123,63 +77,12 @@
                     <div class="col">
                         <div class="card" id="list1" style="border-radius: .75rem; background-color: #ffffff;">
                             <div class="card-body p-4">
-                                <div class="row">
-                                    <div class="col-10">
-                                        <p class="h6  m-1 text-dark">
-                                            <i class="fas fa-hourglass-half me-2"></i>
-                                            <b>In-Progress Tasks</b>
-                                        </p>
-                                    </div>
-                                    <div class="col-2">
-                                        <a class="text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            <i class="fas fa-filter"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <h6 class="dropdown-header center-aligned"><b>Filter by</b></h6>
-                                            <hr class="my-1">
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Date
-                                                    Added</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Start
-                                                    Date</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Completed
-                                                    Date</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Due Date</span></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="h6  m-1 text-dark">
+                                    <i class="fas fa-hourglass-half me-2"></i>
+                                    <b>In-Progress Tasks</b>
+                                </p>
                                 <hr class="my-4">
-            
-                                <div class="row">
-                                    <div class="col-1">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="fs-6">Requirement Gathering Requirement GatheringRequirement Gathering <span class="badge bg-danger"
-                                                data-mdb-toggle="tooltip" title="Due date"><i class="fas fa-info-circle me-2"></i>28th Jun
-                                                2020</span></p>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#" class="text-info"><i class="fas fa-pencil-alt me-2"></i></a>
-                                        <a href="#" class="text-danger"><i class="fas fa-trash-alt me-2"></i></a>
-                                        <a href="#" class="text-primary" onclick="showModal()"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="fs-6">Requirement Gathering Requirement GatheringRequirement Gathering <span class="badge bg-danger"
-                                                data-mdb-toggle="tooltip" title="Due date"><i class="fas fa-info-circle me-2"></i>28th Jun
-                                                2020</span></p>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#" class="text-info"><i class="fas fa-pencil-alt me-2"></i></a>
-                                        <a href="#" class="text-danger"><i class="fas fa-trash-alt me-2"></i></a>
-                                        <a href="#" class="text-primary" onclick="showModal()"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
+                                <div id="inProgressTasksBoard"></div>
                             </div>
                         </div>
                     </div>
@@ -190,74 +93,23 @@
                     <div class="col">
                         <div class="card" id="list1" style="border-radius: .75rem; background-color: #ffffff;">
                             <div class="card-body p-4">
-                                <div class="row">
-                                    <div class="col-10">
-                                        <p class="h6  m-1 text-dark">
-                                            <i class="bx bx-task me-2"></i>
-                                            <b>Completed Tasks</b>
-                                        </p>
-                                    </div>
-                                    <div class="col-2">
-                                        <a class="text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            <i class="fas fa-filter"></i>
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <h6 class="dropdown-header center-aligned"><b>Filter by</b></h6>
-                                            <hr class="my-1">
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Date
-                                                    Added</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Start
-                                                    Date</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Completed
-                                                    Date</span></a>
-                                            <a class="dropdown-item" href="#"><span class="d-none d-sm-inline"> Due Date</span></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="h6  m-1 text-dark">
+                                    <i class="bx bx-task me-2"></i>
+                                    <b>Completed Tasks</b>
+                                </p>
                                 <hr class="my-4">
-            
-                                <div class="row">
-                                    <div class="col-1">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="fs-6">Requirement Gathering Requirement GatheringRequirement Gathering <span class="badge bg-danger"
-                                                data-mdb-toggle="tooltip" title="Due date"><i class="fas fa-info-circle me-2"></i>28th Jun
-                                                2020</span></p>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#" class="text-info"><i class="fas fa-pencil-alt me-2"></i></a>
-                                        <a href="#" class="text-danger"><i class="fas fa-trash-alt me-2"></i></a>
-                                        <a href="#" class="text-primary" onclick="showModal()"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" aria-label="..." />
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="fs-6">Requirement Gathering Requirement GatheringRequirement Gathering <span class="badge bg-danger"
-                                                data-mdb-toggle="tooltip" title="Due date"><i class="fas fa-info-circle me-2"></i>28th Jun
-                                                2020</span></p>
-                                    </div>
-                                    <div class="col-3">
-                                        <a href="#" class="text-info"><i class="fas fa-pencil-alt me-2"></i></a>
-                                        <a href="#" class="text-danger"><i class="fas fa-trash-alt me-2"></i></a>
-                                        <a href="#" class="text-primary" onclick="showModal()"><i class="fas fa-eye"></i></a>
-                                    </div>
-                                </div>
+                                <div id="completedTasksBoard"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div id="myModal" class="modal">
-                <div class="modal-content">
+            <div id="showTaskDetailsModal" class="modal">
+                <div class="modal-content w-50">
                     <div class="row">
                         <div class="col-9 left-aligned">
-                            <h5 class="mt-3"><b>Requirement Gathering</b></h5>
+                            <h5 class="mt-3"><b id="taskDetailsTitle"></b></h5>
                         </div>
                         <div class="col-3">
                             <span class="close right-aligned">&times;</span>
@@ -265,14 +117,18 @@
                     </div>
                     <hr class="my-3">
                     <p><b>Description:</b><br/>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-                        book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-                        unchanged.
+                        <span id="taskDetailsDescription"></span>
+                    </p>
+                    <p><b>Start Date:</b><br />
+                        <span id="taskDetailsStartDate"></span>
                     </p>
                     <p><b>Due Date:</b><br />
-                        
+                        <span id="taskDetailsDueDate"></span>    
                     </p>
+                    <p><b>Participants:</b><br />
+                        <span id="taskDetailsParticipants"></span>
+                    </p>
+                    <p id="taskDetailsBudgetDetails"></p>
                 </div>
             </div>
 
@@ -287,29 +143,69 @@
                         </div>
                     </div>
                     <hr class="my-3">
-                    <form class="p-3">
-                        <div class="form-group">
-                            <label for="taskName">Task Name</label>
-                            <input type="text" class="form-control" id="taskName" placeholder="Enter task name">
-                        </div><br/>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" rows="3" placeholder="Enter task description"></textarea>
-                        </div><br />
-                        <div class="form-group">
-                            <label for="dueDate">Due Date</label>
-                            <input type="date" class="form-control" id="dueDate">
-                        </div><br />
-                        <div class="form-group">
-                            <label for="priority">Priority</label>
-                            <select class="form-control" id="priority">
-                                <option>High</option>
-                                <option>Medium</option>
-                                <option>Low</option>
-                            </select>
-                        </div><br />
-                        <button type="submit" class="btn btn-primary">Add Task</button>
-                    </form>
+                    <div id="alertPlaceHolder"></div>
+                    <div class="form-group">
+                        <label for="taskName">Task Name</label>
+                        <input type="text" class="form-control" id="txtTaskName" placeholder="Enter task name">
+                    </div><br/>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="txtDescription" rows="3" placeholder="Enter task description"></textarea>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="dueDate">Start Date (optional)</label>
+                                <input type="date" class="form-control" id="txtStartDate">
+                            </div><br />
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="dueDate">Due Date</label>
+                                <input type="date" class="form-control" id="txtDueDate">
+                            </div><br />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Select Participants</label>
+                        <input type="text" class="form-control" id="txtSelectedParticipants" placeholder="Selected Participants" disabled>
+                        <select id="selectTaskParticipants" class="form-control" multiple></select>
+                    </div><br />
+                    <div class="form-group">
+                        <button type="submit" id="btnAddTask" class="btn btn-primary">Add Task</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="showTaskBudgetModal" class="modal">
+                <div class="modal-content w-50">
+                    <div class="row">
+                        <div class="col-9 left-aligned">
+                            <h5 class="mt-3"><b id="taskBudgetDetailsTitle"></b></h5>
+                        </div>
+                        <div class="col-3">
+                            <span class="close right-aligned">&times;</span>
+                        </div>
+                    </div>
+                    <hr class="my-3">
+                    <div id="taskBudgetAlertPlaceHolder"></div>
+                    <p><b>Description:</b><br />
+                        <span id="taskBudgetDetailsDescription"></span>
+                    </p>
+                    <p><b>Start Date:</b><br />
+                        <span id="taskBudgetDetailsStartDate"></span>
+                    </p>
+                    <p><b>Due Date:</b><br />
+                        <span id="taskBudgetDetailsDueDate"></span>
+                    </p>
+                    <p><b>Participants:</b><br />
+                        <span id="taskBudgetDetailsParticipants"></span>
+                    </p>
+                    <p><b>Allocate Salary:</b></p>
+                    <div id="budgetInput"></div>
+                    <div class="form-group">
+                        <button type="submit" id="btnUpdateTaskBudget" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>

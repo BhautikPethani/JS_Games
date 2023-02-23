@@ -54,7 +54,7 @@ selectParticipants.addEventListener('change', (event) => {
 });
 
 btnCreateWorkspace.addEventListener('click', async (e)=>{
-    // console.log(currentUser);
+    console.log(currentUser);
     if(txtWorkspaceName.value != ""){
         if(selectedUsers.length > 0){
             setWorkSpace(txtWorkspaceName.value, generateUsername(currentUser.email), selectedUsers);
